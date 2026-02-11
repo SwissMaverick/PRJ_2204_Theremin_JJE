@@ -1,0 +1,9 @@
+Revue Projet 2204 Theremine 1:
+
+Faire 1 machine d'états (Init, DAC, amplitude, fréquence, etc). Indiquer les périphériques utilisés. Délai de 2 semaines pour cette tâche.
+
+Dés que la machine d'états globale a été faite, celle-ci sera divisée en plusieurs fonctions précises.
+
+Aller voir les bits de configuration pour l'oscillateur, la PLL, protections, etc
+
+Documenter tout ça
