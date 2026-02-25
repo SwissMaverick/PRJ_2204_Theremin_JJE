@@ -1,0 +1,6 @@
+Journal de travail projet PROG 2204 Theremine :
+
+11.02.2026 : Discussions avec M.Bovey sur le déroulement du projet. Etablissement d'une liste des tâches.
+Création d'une machine d'état globale.
+
+25.02.2026 : Machine d'état globale
