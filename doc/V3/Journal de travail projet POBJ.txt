@@ -1,0 +1,7 @@
+Journal de travail projet POBJ :
+
+18.02.2026 : Prise en main du projet et discussions avec le professeur
+
+25.02.2026 : Conception de la machine d'états
+
+04.03.2026 : Validation de la machine d'états
