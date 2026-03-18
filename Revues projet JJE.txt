@@ -7,3 +7,5 @@ Dés que la machine d'états globale a été faite, celle-ci sera divisée en pl
 Aller voir les bits de configuration pour l'oscillateur, la PLL, protections, etc
 
 Documenter tout ça
+
+Pour le 1 avril, voir issue 1 et 2
