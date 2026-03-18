@@ -26,43 +26,38 @@
 #include <xc.h>
 #include "configOscillateur.h" // Include your header if it exists
 
-//----------------------------------------------------------------------------//
-// CONFIGURATION BITS (Merged and Fixed)
-//----------------------------------------------------------------------------//
+// ==============================================================================
+// BITS DE CONFIGURATION POUR PIC18F4550 (Thérémine)
+// ==============================================================================
 
-// CONFIG
-#pragma config PLLDIV = 5       // Divise 20MHz crystal by 5 to get 4MHz for PLL input
-#pragma config CPUDIV = OSC1_PLL2 // CPU Clock: 96MHz PLL / 2 = 48MHz
-#pragma config USBDIV = 2       // USB Clock: 96MHz PLL / 2 = 48MHz
+// CONFIG1H : Oscillateur
+#pragma config FOSC = INTOSCIO_EC // Oscillateur interne, broches RA6 et RA7 configurées en I/O numériques
+#pragma config FCMEN = OFF        // Moniteur d'horloge de sécurité désactivé
+#pragma config IESO = OFF         // Basculement d'oscillateur désactivé
 
-// CONFIG1H
-#pragma config FOSC = HSPLL_HS  // HS oscillator, PLL enabled (High Speed Crystal)
-#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor disabled
-#pragma config IESO = OFF       // Oscillator Switchover mode disabled
+// CONFIG2L : Alimentation et Reset
+#pragma config PWRT = ON          // Délai de démarrage activé (stabilise l'alim au boot)
+#pragma config BOR = ON           // Reset si chute de tension (Brown-out Reset)
+#pragma config BORV = 3           // Tension du BOR fixée à 2.05V minimum
+#pragma config VREGEN = OFF       // Régulateur USB désactivé (pas d'USB utilisé sur le schéma)
 
-// CONFIG2L
-#pragma config PWRT = OFF       // Power-up Timer disabled
-#pragma config BOR = ON         // Brown-out Reset enabled
-#pragma config BORV = 3         // Brown-out Reset Voltage = 2.05V
-#pragma config VREGEN = ON      // USB Voltage Regulator enabled (Required for USB)
+// CONFIG2H : Chien de garde (Watchdog)
+#pragma config WDT = OFF          // Watchdog désactivé (indispensable pour le débogage)
+#pragma config WDTPS = 32768      // Diviseur du Watchdog (ignoré car WDT est OFF)
 
-// CONFIG2H
-#pragma config WDT = OFF        // Watchdog Timer DISABLED (Turn ON if needed, but usually OFF for debug)
-#pragma config WDTPS = 32768    // Watchdog Postscaler
+// CONFIG3H : Multiplexage et PORTB
+#pragma config CCP2MX = ON        // L'entrée/sortie CCP2 est multiplexée avec RC1
+#pragma config PBADEN = OFF       // PORTB<4:0> configurés en E/S NUMÉRIQUES au démarrage
+#pragma config LPT1OSC = OFF      // Timer1 configuré pour une horloge haute puissance
+#pragma config MCLRE = ON         // Broche MCLR activée (reliée au bouton SW1 sur ton schéma)
 
-// CONFIG3H
-#pragma config CCP2MX = ON      // CCP2 input/output is multiplexed with RC1
-#pragma config PBADEN = OFF     // PORTB<4:0> pins are configured as DIGITAL I/O on Reset
-#pragma config LPT1OSC = OFF    // Timer1 configured for higher power operation
-#pragma config MCLRE = ON       // MCLR pin enabled
+// CONFIG4L : Paramètres étendus
+#pragma config STVREN = ON        // Reset sur débordement de la pile
+#pragma config LVP = OFF          // Programmation basse tension DÉSACTIVÉE (Libère la broche RB5)
+#pragma config ICPRT = OFF        // Port de débogage ICSP dédié désactivé
+#pragma config XINST = OFF        // Jeu d'instructions étendu désactivé (code standard)
 
-// CONFIG4L
-#pragma config STVREN = ON      // Stack full/underflow will cause Reset
-#pragma config LVP = OFF        // Single-Supply ICSP DISABLED (Important: keeps RB5 usable)
-#pragma config ICPRT = OFF      // ICPORT disabled
-#pragma config XINST = OFF      // Extended Instruction Set disabled
-
-// CONFIG5L - CONFIG7H (Code Protection)
+// CONFIG5L à CONFIG7H : Protections du code (Désactivées pour le développement)
 #pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF
 #pragma config CPB = OFF, CPD = OFF
 #pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF
