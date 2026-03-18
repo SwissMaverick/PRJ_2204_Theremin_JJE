@@ -1,0 +1,62 @@
+Registres du PIC18 du projet thérémine
+
+1. Oscillateurs
+OSCCON : Registre de contrôle de l'oscillateur (permet de contrôler la source et la fréquence de l'horloge).
+
+OSCTUNE : Registre d'ajustement de l'oscillateur (permet de régler précisément la fréquence de l'oscillateur interne).
+
+CONFIG1H & CONFIG1L : Registres de configuration matérielle (Flash) utilisés pour définir le mode d'oscillateur initial, les options d'horloge pour le module USB, et les diviseurs de fréquence (prescalers/postscalers).
+
+2. Minuteries (Timers)
+T0CON : Registre de contrôle du Timer0.
+
+TMR0L & TMR0H : Registres du Timer0 (octets de poids faible et de poids fort).
+
+T1CON : Registre de contrôle du Timer1.
+
+TMR1L & TMR1H : Registres de comptage du Timer1.
+
+T2CON : Registre de contrôle du Timer2.
+
+TMR2 : Registre de comptage du Timer2 (8 bits).
+
+PR2 : Registre de période du Timer2 (détermine la fréquence des signaux PWM, entre autres).
+
+T3CON : Registre de contrôle du Timer3.
+
+TMR3L & TMR3H : Registres de comptage du Timer3.
+
+3. Convertisseur Analogique-Numérique (ADC)
+ADCON0 : Registre de contrôle A/D 0 (sélectionne le canal analogique, lance la conversion, et indique l'état de la conversion).
+
+ADCON1 : Registre de contrôle A/D 1 (configure les broches pour qu'elles soient analogiques ou numériques, et sélectionne les tensions de référence).
+
+ADCON2 : Registre de contrôle A/D 2 (sélectionne le temps d'acquisition et l'horloge de conversion).
+
+ADRESH & ADRESL : Registres contenant le résultat de la conversion analogique-numérique (alignement à gauche ou à droite).
+
+4. Entrées/Sorties Numériques (GPIO)
+TRISA, TRISB, TRISC, TRISD, TRISE : Registres de direction des données (configurent les broches en entrée ou en sortie : 1 = Entrée, 0 = Sortie).
+
+PORTA, PORTB, PORTC, PORTD, PORTE : Registres de données des ports (permettent de lire l'état logique appliqué sur les broches physiques).
+
+LATA, LATB, LATC, LATD, LATE : Registres à verrouillage (Data Latches). Il est recommandé d'écrire dans ces registres plutôt que dans les registres PORT pour modifier l'état d'une broche en sortie.
+
+5. Autres registres importants
+INTCON, INTCON2, INTCON3 : Registres de contrôle des interruptions (activation générale, activation des interruptions externes, gestion des priorités).
+
+PIE1, PIE2 : Registres d'activation des interruptions périphériques (ex: fin de conversion ADC, réception UART).
+
+PIR1, PIR2 : Registres de drapeaux (flags) des requêtes d'interruptions périphériques.
+
+IPR1, IPR2 : Registres de priorité des interruptions périphériques.
+
+RCON : Registre de contrôle des réinitialisations (Reset) et gestion des priorités d'interruption.
+
+TXSTA, RCSTA, BAUDCON : Registres de contrôle du module EUSART (indispensables pour la communication série asynchrone type UART / RS232).
+
+SSPCON1, SSPCON2, SSPSTAT : Registres de contrôle et d'état du module MSSP (utilisés pour les communications SPI et I2C).
+
+HLVDCON : Registre de contrôle du module de détection de tension haute/basse.
+
+UCON, UCFG, USTAT, UADDR : Registres de contrôle, de configuration et d'état dédiés au module USB, qui est la grande spécificité du PIC18F4550.
