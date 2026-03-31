@@ -4,3 +4,13 @@ Journal de travail projet PROG 2204 Theremine :
 Création d'une machine d'état globale.
 
 25.02.2026 : Machine d'état globale
+
+04.03.2026 : Validation de la machine d'états
+
+11.03.2026 : Listing des registres du PIC18
+
+18.03.2026 : Revue avec M.Merlini + planif des tâches à suivre
+
+25.03.2026 : Absent
+
+01.04.2026 :
