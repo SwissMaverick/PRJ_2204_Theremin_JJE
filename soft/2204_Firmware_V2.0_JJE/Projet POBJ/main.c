@@ -63,12 +63,19 @@
 #include  "main.h"
 #include "configuration_bitsSettings.h"
 
+#define LED_BAT_RED LATAbits.LATA1
+#define LED_BAT_RED  LATEbits.LATE1
+#define LED_BAT_GRN  LATEbits.LATE0
+#define BAT_READ     LATAbits.LATA0
+
 void main(void)
 {
     //declaration des variable
     // Pour une fréquence de 8 MHz
     OSCCONbits.IRCF = 0b111;
-    // Utiliser l'oscillateur interne
+    //Active la PLL
+    OSCTUNEbits.PLLEN = 1;
+    // Utilise l'oscillateur interne
     OSCCONbits.SCS = 1;
 
     TRISEbits.TRISE2 = 1;  // Output
@@ -112,9 +119,9 @@ void delay(unsigned long cntr)
 }
 
 void ADC_Init(void) {
-    ADCON1 = 0x0E;    // AN0 analog, others digital
+    ADCON1 = 0x0D;    // AN0 analog, others digital
     ADCON2 = 0xA9;    // Right justify, 12 TAD, Fosc/8
-    ADCON0 = 0x01;    // Enable ADC, select channel AN0
+    ADCON0 = 0x05;    // Enable ADC, select channel AN0
 }
 
 // Lecture ADC sur AN0
