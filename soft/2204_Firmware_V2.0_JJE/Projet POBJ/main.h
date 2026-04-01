@@ -42,13 +42,13 @@ typedef struct {
     float tension; // en Volts
 } S_lecture_data;
 
-
-void delay(unsigned long cntr);
-
+// --- Prototypes ---
+void init_microcontroleur(void);
 void ADC_Init(void);
-uint16_t ADC_Read_AN0(void);
+uint16_t ADC_Read_AN1(void);
 float Lire_Tension_Batterie(void);
 void Surveiller_Tension_Batterie(void);
+void delay(unsigned long cntr);
 
 #ifdef	__cplusplus
 extern "C" {
