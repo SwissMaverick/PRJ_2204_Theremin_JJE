@@ -10,4 +10,7 @@ Sources d'interruption : 20
 I/O Ports : A, B, C, D, E  
 Timers : 4  
 PWM modules : 1  
+Comm série : USART  
 USB modules : 1  
+Comparateurs : 2  
+Boîtiers : 40-Pin PDIP, 44-Pin QFN, 44-Pin TQFP  
