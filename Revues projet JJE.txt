@@ -9,3 +9,11 @@ Aller voir les bits de configuration pour l'oscillateur, la PLL, protections, et
 Documenter tout ça
 
 Pour le 1 avril, voir issue 1 et 2
+
+Pour le 13 mai :
+Configurer Oscillateur pour permettre d'obtenir des timers. Configurer manuellement ce qui est fait sur Harmony.
+- Config osci
+- Config timers
+- Config GPIO
+
+Le programme doit être compilable avec une LED qui clignote
