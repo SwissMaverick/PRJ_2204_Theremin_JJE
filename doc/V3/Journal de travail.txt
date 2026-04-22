@@ -13,4 +13,6 @@ Création d'une machine d'état globale.
 
 25.03.2026 : Absent
 
-01.04.2026 :
+01.04.2026 : 
+
+22.04.2026 : Recherche sur la configuration des registres des oscillateurs, timers et GPIO
