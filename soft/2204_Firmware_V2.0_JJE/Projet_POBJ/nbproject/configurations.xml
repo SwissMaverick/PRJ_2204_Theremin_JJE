@@ -4,11 +4,8 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>configOscillateur.h</itemPath>
-      <itemPath>configTimer.h</itemPath>
       <itemPath>configuration_bitsSettings.h</itemPath>
-      <itemPath>main.h</itemPath>
-      <itemPath>configOsc.h</itemPath>
+      <itemPath>hardware.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -17,9 +14,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>configModuleOscillateur.c</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>configOsc.c</itemPath>
+      <itemPath>hardware.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
