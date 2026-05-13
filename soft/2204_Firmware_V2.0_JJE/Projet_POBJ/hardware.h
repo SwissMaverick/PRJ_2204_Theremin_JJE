@@ -31,20 +31,24 @@
 #ifndef HARDWARE_H
 #define	HARDWARE_H  
 
-// 1. Librairies communes
+// Librairies communes
 #include <xc.h>
 #include <stdint.h>
 
-// 2. Fréquence du PIC (utile pour __delay_ms)
+// Fréquence du PIC (utile pour __delay_ms)
 #define _XTAL_FREQ 8000000
 
-// 3. Définition de tes broches
-#define LED_STATE    LATDbits.LATD7
+// Définition de tes broches
+#define LED_DS1      LATEbits.LATE2
 #define LED_BAT_RED  LATEbits.LATE1 
 #define LED_BAT_GRN  LATEbits.LATE0 
 #define BAT_READ     LATAbits.LATA0
 
-// 4. Prototypes
+// CAPTEUR ULTRASON HORIZONTAL
+#define TRIG_H LATCbits.LATC0  // Sortie (On envoie l'impulsion)
+#define ECHO_H PORTCbits.RC2   // Entrée (On lit le retour)
+
+// Prototypes
 void Init_Hardware(void);
 void ADC_Init(void);
 uint16_t ADC_Read_AN1(void);
@@ -52,4 +56,3 @@ float Lire_Tension_Batterie(void);
 void Surveiller_Tension_Batterie(void);
 
 #endif	/* XC_HEADER_TEMPLATE_H */
-

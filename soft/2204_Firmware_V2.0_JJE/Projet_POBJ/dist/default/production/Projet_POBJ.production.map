@@ -4,23 +4,19 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.46\pic\dat\20240104201356_en.msgs \
-  -cn -h+dist/default/debug\Projet_POBJ.debug.sym \
-  --cmf=dist/default/debug\Projet_POBJ.debug.cmf -z -Q18F4550 \
-  -oC:\Users\JERJEA~1\AppData\Local\Temp\xcAsh9s.\driver_tmp_3.o \
+  -cn -h+dist/default/production\Projet_POBJ.production.sym \
+  --cmf=dist/default/production\Projet_POBJ.production.cmf -z -Q18F4550 \
+  -oC:\Users\JERJEA~1\AppData\Local\Temp\xcAsn2g.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
-  -Mdist/default/debug/Projet_POBJ.debug.map \
-  --md=C:\Users\JERJEA~1\AppData\Local\Temp\xcAsh9s.\driver_tmp_0.dat -E1 \
-  -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07D3Fh -ACONST=00h-07D3Fh \
-  -ASMALLCONST=0800h-08FFhx117,07D00h-07D3Fh -AMEDIUMCONST=0800h-07D3Fh \
-  -ACOMRAM=01h-05Fh -AABS1=00h-03EEh,0400h-07FFh \
-  -ABIGRAM=01h-03EEh,0400h-07FFh \
-  -ARAM=060h-0FFh,0100h-01FFhx2,0300h-03EEh,0400h-04FFhx4 -ABANK0=060h-0FFh \
-  -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ABANK3=0300h-03EEh \
-  -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh -ABANK6=0600h-06FFh \
-  -ABANK7=0700h-07FFh \
-  -ASFR=0F60h-0F9Bh,0F9Dh-0FD3h,0FD5h-0FDAh,0FE0h-0FE2h,0FE8h-0FEAh,0FF0h-0FFBh \
-  -ABIGSFR=0F60h-0F9Bh,0F9Dh-0FD3h,0FD5h-0FDAh,0FE0h-0FE2h,0FE8h-0FEAh,0FF0h-0FFBh \
-  -ACONFIG=0300000h-030000Dh -AIDLOC=0200000h-0200007h \
+  -Mdist/default/production/Projet_POBJ.production.map \
+  --md=C:\Users\JERJEA~1\AppData\Local\Temp\xcAsn2g.\driver_tmp_0.dat -E1 \
+  -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
+  -ASMALLCONST=0800h-08FFhx120 -AMEDIUMCONST=0800h-07FFFh -ACOMRAM=01h-05Fh \
+  -AABS1=00h-07FFh -ABIGRAM=01h-07FFh -ARAM=060h-0FFh,0100h-01FFhx7 \
+  -ABANK0=060h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh \
+  -ABANK3=0300h-03FFh -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh \
+  -ABANK6=0600h-06FFh -ABANK7=0700h-07FFh -ASFR=0F60h-0FFFh \
+  -ABIGSFR=0F60h-0FFFh -ACONFIG=0300000h-030000Dh -AIDLOC=0200000h-0200007h \
   -AEEDATA=0F00000h-0F000FFh -peeprom_data=EEDATA \
   -preset_vec=00h,intcode=8h,intcodelo,powerup,init -pramtop=0800h \
   -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
@@ -29,8 +25,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\JERJEA~1\AppData\Local\Temp\xcAsh9s.\driver_tmp_9.o \
-  dist/default/debug\Projet_POBJ.debug.o 
+  C:\Users\JERJEA~1\AppData\Local\Temp\xcAsn2g.\driver_tmp_9.o \
+  dist/default/production\Projet_POBJ.production.o 
 
 Object code version is 3.11
 
@@ -39,11 +35,11 @@ Machine type is 18F4550
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\JERJEA~1\AppData\Local\Temp\xcAsh9s.\driver_tmp_9.o
+C:\Users\JERJEA~1\AppData\Local\Temp\xcAsn2g.\driver_tmp_9.o
                 config                           300000   300000        8        0       4
                 init                                  E        E        4        4       0
-                reset_vec                             0        0        6        0       0
-dist/default/debug\Projet_POBJ.debug.o
+                reset_vec                             0        0        4        0       0
+dist/default/production\Projet_POBJ.production.o
                 intcode                               8        8        6        4       0
                 config                           300000   300000        8        0       4
                 temp                                 37       37        1        1       1
@@ -63,7 +59,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 intcode                               8        8        6         0
                 init                                  E        E        4         0
-                reset_vec                             0        0        6         0
+                reset_vec                             0        0        4         0
                 intcode_body                        F78      F78       60         0
                 text5                               FD8      FD8       40         0
                 text4                               802      802      39A         0
@@ -128,7 +124,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
-                reset_vec                      000000  000006  000006         0       0  CODE    
+                reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  000037  000038         1       1  COMRAM  
                 intcode                        000008  00000A  000012         4       0  CODE    
                 smallconst                     000800  000002  000802       400       0  SMALLCON
@@ -141,39 +137,27 @@ UNUSED ADDRESS RANGES
         BANK0            000060-0000FF               A0
         BANK1            000100-0001FF              100
         BANK2            000200-0002FF              100
-        BANK3            000300-0003EE               EF
+        BANK3            000300-0003FF              100
         BANK4            000400-0004FF              100
         BANK5            000500-0005FF              100
         BANK6            000600-0006FF              100
         BANK7            000700-0007FF              100
-        BIGRAM           000038-0003EE              3B7
-                         000400-0007FF              400
-        BIGSFR           000F60-000F9B               3C
-                         000F9D-000FD3               37
-                         000FD5-000FDA                6
-                         000FE0-000FE2                3
-                         000FE8-000FEA                3
-                         000FF0-000FFB                C
-        CODE             000006-000007                2
+        BIGRAM           000038-0007FF              7C8
+        BIGSFR           000F60-000FFF               A0
+        CODE             000004-000007                4
                          000012-0007FF              7EE
-                         00103A-007D3F             6D06
+                         00103A-007FFF             6FC6
         COMRAM           000038-00005F               28
         CONFIG           300008-30000D                6
-        CONST            000006-000007                2
+        CONST            000004-000007                4
                          000012-0007FF              7EE
-                         00103A-007D3F             6D06
+                         00103A-007FFF             6FC6
         EEDATA           F00000-F000FF              100
         IDLOC            200000-200007                8
-        MEDIUMCONST      00103A-007D3F             6D06
-        RAM              000060-0003EE              100
-                         000400-0007FF              100
-        SFR              000F60-000F9B               3C
-                         000F9D-000FD3               37
-                         000FD5-000FDA                6
-                         000FE0-000FE2                3
-                         000FE8-000FEA                3
-                         000FF0-000FFB                C
-        SMALLCONST       00103A-007D3F              100
+        MEDIUMCONST      00103A-007FFF             6FC6
+        RAM              000060-0007FF              100
+        SFR              000F60-000FFF               A0
+        SMALLCONST       00103A-007FFF              100
 
                                   Symbol Table
 
@@ -248,7 +232,7 @@ __Hramtop                ramtop       000800
 __Hrbit                  rbit         000000
 __Hrbss                  rbss         000000
 __Hrdata                 rdata        000000
-__Hreset_vec             reset_vec    000006
+__Hreset_vec             reset_vec    000004
 __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
 __Hsivt_hi               sivt_hi      000000

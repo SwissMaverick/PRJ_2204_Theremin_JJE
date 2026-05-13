@@ -16,3 +16,11 @@ Création d'une machine d'état globale.
 01.04.2026 : 
 
 22.04.2026 : Recherche sur la configuration des registres des oscillateurs, timers et GPIO
+
+29.04.2026 : Simplification du code pour n'avoir que deux fichiers : 
+"hardware.c" qui sert à configurer les registres
+"main.c" qui sert à écrire les fonctions du code
+
+06.05.2026 : Écriture des fonctions pour le clignotement de la LED. Recherches sur le problème de connexion au debugger. Il se trouve que j'avais le mauvais ICD. Une fois celui-ci monté, la connexion a pu se faire.
+
+13.05.2026 : Code du clignotement non fonctionnel en début de cours. Résolution du problème. La port addressé n'était pas le bon. Après la résolution du problème, la LED a bien pu être clignotée.

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Wed May 13 09:32:43 2026
+                                                                                               Wed May 13 09:36:36 2026
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F4550
@@ -67,22 +67,22 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
     53                           ; Code-generator required, PIC18F4550 Definitions
     54                           ; 
     55                           ; SFR Addresses
-    56   000000                     _PIE1bits	set	3997
-    57   000000                     _CCPR1L	set	4030
-    58   000000                     _CCPR1H	set	4031
-    59   000000                     _PIR1bits	set	3998
-    60   000000                     _CCP1CON	set	4029
-    61   000000                     _LATCbits	set	3979
-    62   000000                     _T0CON	set	4053
-    63   000000                     _INTCONbits	set	4082
-    64   000000                     _CMCON	set	4020
-    65   000000                     _CCP1CONbits	set	4029
-    66   000000                     _ADCON1	set	4033
-    67   000000                     _OSCCONbits	set	4051
-    68   000000                     _LATEbits	set	3981
-    69   000000                     _TRISAbits	set	3986
-    70   000000                     _TRISEbits	set	3990
-    71   000000                     _TRISCbits	set	3988
+    56   000000                     _CCPR1L	set	4030
+    57   000000                     _CCPR1H	set	4031
+    58   000000                     _CCP1CON	set	4029
+    59   000000                     _LATCbits	set	3979
+    60   000000                     _PIR1bits	set	3998
+    61   000000                     _CMCON	set	4020
+    62   000000                     _CCP1CONbits	set	4029
+    63   000000                     _ADCON1	set	4033
+    64   000000                     _OSCCONbits	set	4051
+    65   000000                     _LATEbits	set	3981
+    66   000000                     _TRISAbits	set	3986
+    67   000000                     _TRISEbits	set	3990
+    68   000000                     _T0CON	set	4053
+    69   000000                     _PIE1bits	set	3997
+    70   000000                     _TRISCbits	set	3988
+    71   000000                     _INTCONbits	set	4082
     72                           
     73                           ; #config settings
     74                           
@@ -1719,7 +1719,7 @@ Auto Spaces:
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
-    BANK3           239      0       0
+    BANK3           256      0       0
     BANK4           256      0       0
     BANK5           256      0       0
     BANK6           256      0       0
@@ -1853,69 +1853,51 @@ Call Graph Tables:
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
-BIGRAM_1           400      0       0      35        0.0%
-BIGRAM             3EE      0       0      36        0.0%
+BIGRAM             7FF      0       0      34        0.0%
 EEDATA             100      0       0       0        0.0%
-BITBANK7           100      0       0      17        0.0%
-BANK7              100      0       0      18        0.0%
-BITBANK6           100      0       0      15        0.0%
-BANK6              100      0       0      16        0.0%
-BITBANK5           100      0       0      13        0.0%
-BANK5              100      0       0      14        0.0%
-BITBANK4           100      0       0      11        0.0%
-BANK4              100      0       0      12        0.0%
-BITBANK2           100      0       0       7        0.0%
-BANK2              100      0       0       8        0.0%
-BITBANK1           100      0       0       5        0.0%
-BANK1              100      0       0       6        0.0%
-BITBANK3            EF      0       0       9        0.0%
-BANK3               EF      0       0      10        0.0%
-BITBANK0            A0      0       0       3        0.0%
-BANK0               A0      0       0       4        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
 BITCOMRAM           5E      0       0       0        0.0%
 COMRAM              5E     31      36       1       57.4%
-BITBIGSFRl          2B      0       0      33        0.0%
-BITBIGSFR_1hll      15      0       0      27        0.0%
-BITBIGSFR_1hhhh     11      0       0      24        0.0%
-BITBIGSFR_5h         9      0       0      19        0.0%
-BITBIGSFR_1hlh       8      0       0      26        0.0%
-BITBIGSFRhhh         5      0       0      28        0.0%
-BITBIGSFR_2          5      0       0      23        0.0%
-BITBIGSFRhhll        4      0       0      31        0.0%
-BITBIGSFR_4          3      0       0      21        0.0%
-BITBIGSFR_3          3      0       0      22        0.0%
-BITBIGSFR_5l         2      0       0      20        0.0%
-BITBIGSFRhhlhh       1      0       0      29        0.0%
-BITBIGSFRhhlhl       1      0       0      30        0.0%
-BITBIGSFRhl          1      0       0      32        0.0%
-BITBIGSFR_1hhhl      1      0       0      25        0.0%
-BIGSFR_5             0      0       0     200        0.0%
-BIGSFR_4             0      0       0     200        0.0%
-BIGSFR_3             0      0       0     200        0.0%
-BIGSFR_2             0      0       0     200        0.0%
-BIGSFR_1             0      0       0     200        0.0%
+BITBIGSFRll         2B      0       0      32        0.0%
+BITBIGSFRhhhhhl     1C      0       0      21        0.0%
+BITBIGSFRhll        15      0       0      26        0.0%
+BITBIGSFRhhhlh      11      0       0      23        0.0%
+BITBIGSFRhhhhhh      D      0       0      20        0.0%
+BITBIGSFRhlh         8      0       0      25        0.0%
+BITBIGSFRlhhh        6      0       0      27        0.0%
+BITBIGSFRlhhll       4      0       0      30        0.0%
+BITBIGSFRlhhlhh      1      0       0      28        0.0%
+BITBIGSFRlhhlhl      1      0       0      29        0.0%
+BITBIGSFRhhhhl       1      0       0      22        0.0%
+BITBIGSFRlhl         1      0       0      31        0.0%
+BITBIGSFRhhhll       1      0       0      24        0.0%
 BIGSFR               0      0       0     200        0.0%
-BITSFR_5             0      0       0     200        0.0%
-SFR_5                0      0       0     200        0.0%
-BITSFR_4             0      0       0     200        0.0%
-SFR_4                0      0       0     200        0.0%
-BITSFR_3             0      0       0     200        0.0%
-SFR_3                0      0       0     200        0.0%
-BITSFR_2             0      0       0     200        0.0%
-SFR_2                0      0       0     200        0.0%
-BITSFR_1             0      0       0     200        0.0%
-SFR_1                0      0       0     200        0.0%
 BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      36      34        0.0%
-DATA                 0      0      36      37        0.0%
+ABS                  0      0      36      33        0.0%
+DATA                 0      0      36       3        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Wed May 13 09:32:43 2026
+Symbol Table                                                                                   Wed May 13 09:36:36 2026
 
            ___fldiv@aexp 0029             ___fldiv@bexp 0028             ___fldiv@sign 0021  
                      l35 1038                       l44 0E6A                       l75 0FE0  
