@@ -24,3 +24,5 @@ Création d'une machine d'état globale.
 06.05.2026 : Écriture des fonctions pour le clignotement de la LED. Recherches sur le problème de connexion au debugger. Il se trouve que j'avais le mauvais ICD. Une fois celui-ci monté, la connexion a pu se faire.
 
 13.05.2026 : Code du clignotement non fonctionnel en début de cours. Résolution du problème. La port addressé n'était pas le bon. Après la résolution du problème, la LED a bien pu être clignotée.
+
+18.05.2026 : Réussite du test avec le capteur ultrasons. Le problème était que le capteur était alimenté en 3.3V alors qu'il nécéssitait du 5V. Il a été décidé de commander des capteurs ultrasons compatibles avec une alim en 3.3V. Dans le futur, une alim 5V sur la carte ne sera plus utile étant donné que tout le reste est alimenté en 3.3V.

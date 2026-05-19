@@ -1,0 +1,3 @@
+[(Duree impulsion echo) x 340 ] / 2
+
+340 correspondant à la vitesse du son en m/s
