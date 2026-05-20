@@ -5731,13 +5731,17 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\\pic\\include\\xc.h" 2 3
 # 35 "./hardware.h" 2
-# 52 "./hardware.h"
+# 57 "./hardware.h"
 void Init_Hardware(void);
+void DAC_Write(uint8_t valeur);
 void ADC_Init(void);
 uint16_t ADC_Read_AN1(void);
 float Lire_Tension_Batterie(void);
 void Surveiller_Tension_Batterie(void);
 # 1 "hardware.c" 2
+
+
+
 
 
 void Init_Hardware(void)
@@ -5770,10 +5774,64 @@ void Init_Hardware(void)
     INTCONbits.TMR0IF = 0;
 
 
+    TRISDbits.TRISD5 = 0;
+    TRISBbits.TRISB1 = 0;
+    TRISBbits.TRISB0 = 0;
+    LATDbits.LATD5 = 1;
+    LATBbits.LATB1 = 0;
+    LATBbits.LATB0 = 0;
+
+
+    T0CON = 0b10000011;
+    INTCONbits.TMR0IF = 0;
+
+
+
+    T1CON = 0b10100001;
+
+
+
+    CCP1CON = 0b00000101;
+
+
     PIR1bits.CCP1IF = 0;
     PIE1bits.CCP1IE = 1;
 
 
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
+}
+
+
+
+
+void DAC_Write(uint8_t valeur)
+{
+
+
+
+
+    uint16_t trame = 0x3000 | ((uint16_t)valeur << 4);
+
+    LATDbits.LATD5 = 0;
+
+
+    for (int8_t i = 15; i >= 0; i--)
+    {
+
+        if ((trame >> i) & 0x0001)
+        {
+            LATBbits.LATB0 = 1;
+        }
+        else
+        {
+            LATBbits.LATB0 = 0;
+        }
+
+
+        LATBbits.LATB1 = 1;
+        LATBbits.LATB1 = 0;
+    }
+
+    LATDbits.LATD5 = 1;
 }

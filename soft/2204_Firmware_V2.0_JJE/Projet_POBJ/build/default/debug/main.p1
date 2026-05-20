@@ -37,6 +37,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6496
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 6496: extern volatile unsigned char CCPR1L __attribute__((address(0xFBE)));
 [v _CCPR1L `Vuc ~T0 @X0 0 e@4030 ]
+"4390
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 4390:     struct {
+[s S175 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S175 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE SPPIE ]
+"4400
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 4400:     struct {
+[s S176 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S176 . . TX1IE RC1IE . PSPIE ]
+"4389
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 4389: typedef union {
+[u S174 `S175 1 `S176 1 ]
+[n S174 . . . ]
+"4408
+[; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 4408: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
+[v _PIE1bits `VS174 ~T0 @X0 0 e@3997 ]
 "6327
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 6327: extern volatile unsigned char CCP1CON __attribute__((address(0xFBD)));
 [v _CCP1CON `Vuc ~T0 @X0 0 e@4029 ]
@@ -60,8 +75,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v __delay `JF202 ~T0 @X0 0 e ]
 [p i __delay ]
 [p mainexit ]
-"52 ./hardware.h
-[; ;./hardware.h: 52: void Init_Hardware(void);
+"57 ./hardware.h
+[; ;./hardware.h: 57: void Init_Hardware(void);
 [v _Init_Hardware `(v ~T0 @X0 0 ef ]
 "3381 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4550.h: 3381:     struct {
@@ -595,30 +610,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "37
 [p x IESO  =  OFF          ]
 "40
-[p x PWRT  =  ON           ]
+[p x PLLDIV  =  1        ]
 "41
-[p x BOR  =  ON            ]
+[p x CPUDIV  =  OSC1_PLL2  ]
 "42
-[p x BORV  =  3            ]
-"43
-[p x VREGEN  =  OFF        ]
+[p x USBDIV  =  1 ]
+"45
+[p x PWRT  =  ON           ]
 "46
-[p x WDT  =  OFF           ]
-"49
-[p x CCP2MX  =  ON         ]
-"50
-[p x PBADEN  =  OFF        ]
+[p x BOR  =  ON            ]
+"47
+[p x BORV  =  3            ]
+"48
+[p x VREGEN  =  OFF        ]
 "51
-[p x LPT1OSC  =  OFF       ]
-"52
-[p x MCLRE  =  ON          ]
+[p x WDT  =  OFF           ]
+"54
+[p x CCP2MX  =  ON         ]
 "55
-[p x STVREN  =  ON         ]
+[p x PBADEN  =  OFF        ]
 "56
-[p x LVP  =  OFF           ]
+[p x LPT1OSC  =  OFF       ]
 "57
+[p x MCLRE  =  ON          ]
+"60
+[p x STVREN  =  ON         ]
+"61
+[p x LVP  =  OFF           ]
+"62
 [p x ICPRT  =  OFF         ]
-"58
+"63
 [p x XINST  =  OFF         ]
 "71 main.c
 [; ;main.c: 71: volatile uint16_t temps_depart = 0;
@@ -639,182 +660,235 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [v $root$_ISR `(v ~T0 @X0 0 e ]
-"75
-[; ;main.c: 75: void __attribute__((picinterrupt(("")))) ISR(void)
+"78
+[; ;main.c: 78: void __attribute__((picinterrupt(("")))) ISR(void)
 [v _ISR `(v ~T36 @X0 1 ef ]
-"76
-[; ;main.c: 76: {
+"79
+[; ;main.c: 79: {
 {
 [e :U _ISR ]
 [f ]
-"78
-[; ;main.c: 78:     if (PIR1bits.CCP1IF)
+"81
+[; ;main.c: 81:     if (PIR1bits.CCP1IF)
 [e $ ! != -> . . _PIR1bits 0 2 `i -> 0 `i 370  ]
-"79
-[; ;main.c: 79:     {
+"82
+[; ;main.c: 82:     {
 {
-"80
-[; ;main.c: 80:         PIR1bits.CCP1IF = 0;
-[e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
 "83
-[; ;main.c: 83:         if (CCP1CONbits.CCP1M0 == 1)
-[e $ ! == -> . . _CCP1CONbits 1 0 `i -> 1 `i 371  ]
-"84
-[; ;main.c: 84:         {
-{
-"85
-[; ;main.c: 85:             temps_depart = (CCPR1H << 8) | CCPR1L;
-[e = _temps_depart -> | << -> _CCPR1H `i -> 8 `i -> _CCPR1L `i `us ]
+[; ;main.c: 83:         PIR1bits.CCP1IF = 0;
+[e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
 "86
-[; ;main.c: 86:             CCP1CON = 0b00000100;
-[e = _CCP1CON -> -> 4 `i `uc ]
+[; ;main.c: 86:         if (CCP1CONbits.CCP1M0 == 1)
+[e $ ! == -> . . _CCP1CONbits 1 0 `i -> 1 `i 371  ]
 "87
-[; ;main.c: 87:         }
-}
-[e $U 372  ]
-"89
-[; ;main.c: 89:         else
-[e :U 371 ]
-"90
-[; ;main.c: 90:         {
+[; ;main.c: 87:         {
 {
+"88
+[; ;main.c: 88:             temps_depart = ((uint16_t)CCPR1H << 8) | CCPR1L;
+[e = _temps_depart -> | << -> -> _CCPR1H `us `ui -> 8 `i -> _CCPR1L `ui `us ]
+"90
+[; ;main.c: 90:             PIE1bits.CCP1IE = 0;
+[e = . . _PIE1bits 0 2 -> -> 0 `i `uc ]
 "91
-[; ;main.c: 91:             temps_fin = (CCPR1H << 8) | CCPR1L;
-[e = _temps_fin -> | << -> _CCPR1H `i -> 8 `i -> _CCPR1L `i `us ]
+[; ;main.c: 91:             CCP1CON = 0b00000100;
+[e = _CCP1CON -> -> 4 `i `uc ]
 "92
-[; ;main.c: 92:             mesure_prete = 1;
-[e = _mesure_prete -> -> 1 `i `uc ]
+[; ;main.c: 92:             PIR1bits.CCP1IF = 0;
+[e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
 "93
-[; ;main.c: 93:             CCP1CON = 0b00000101;
-[e = _CCP1CON -> -> 5 `i `uc ]
+[; ;main.c: 93:             PIE1bits.CCP1IE = 1;
+[e = . . _PIE1bits 0 2 -> -> 1 `i `uc ]
 "94
 [; ;main.c: 94:         }
 }
+[e $U 372  ]
+"96
+[; ;main.c: 96:         else
+[e :U 371 ]
+"97
+[; ;main.c: 97:         {
+{
+"98
+[; ;main.c: 98:             temps_fin = ((uint16_t)CCPR1H << 8) | CCPR1L;
+[e = _temps_fin -> | << -> -> _CCPR1H `us `ui -> 8 `i -> _CCPR1L `ui `us ]
+"99
+[; ;main.c: 99:             mesure_prete = 1;
+[e = _mesure_prete -> -> 1 `i `uc ]
+"101
+[; ;main.c: 101:             PIE1bits.CCP1IE = 0;
+[e = . . _PIE1bits 0 2 -> -> 0 `i `uc ]
+"102
+[; ;main.c: 102:             CCP1CON = 0b00000101;
+[e = _CCP1CON -> -> 5 `i `uc ]
+"103
+[; ;main.c: 103:             PIR1bits.CCP1IF = 0;
+[e = . . _PIR1bits 0 2 -> -> 0 `i `uc ]
+"104
+[; ;main.c: 104:             PIE1bits.CCP1IE = 1;
+[e = . . _PIE1bits 0 2 -> -> 1 `i `uc ]
+"105
+[; ;main.c: 105:         }
+}
 [e :U 372 ]
-"95
-[; ;main.c: 95:     }
+"106
+[; ;main.c: 106:     }
 }
 [e :U 370 ]
-"96
-[; ;main.c: 96: }
+"107
+[; ;main.c: 107: }
 [e :UE 369 ]
 }
-"101
-[; ;main.c: 101: void envoyer_trigger(void)
+"112
+[; ;main.c: 112: void envoyer_trigger(void)
 [v _envoyer_trigger `(v ~T0 @X0 1 ef ]
-"102
-[; ;main.c: 102: {
+"113
+[; ;main.c: 113: {
 {
 [e :U _envoyer_trigger ]
 [f ]
-"103
-[; ;main.c: 103:     LATCbits.LATC0 = 1;
+"114
+[; ;main.c: 114:     LATCbits.LATC0 = 1;
 [e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-"104
-[; ;main.c: 104:     _delay((unsigned long)((10)*(8000000/4000000.0)));
+"115
+[; ;main.c: 115:     _delay((unsigned long)((10)*(8000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
-"105
-[; ;main.c: 105:     LATCbits.LATC0 = 0;
+"116
+[; ;main.c: 116:     LATCbits.LATC0 = 0;
 [e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-"106
-[; ;main.c: 106: }
+"117
+[; ;main.c: 117: }
 [e :UE 373 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"111
-[; ;main.c: 111: void main(void)
+"122
+[; ;main.c: 122: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"112
-[; ;main.c: 112: {
+"123
+[; ;main.c: 123: {
 {
 [e :U _main ]
 [f ]
-"113
-[; ;main.c: 113:     Init_Hardware();
+"124
+[; ;main.c: 124:     Init_Hardware();
 [e ( _Init_Hardware ..  ]
-"115
-[; ;main.c: 115:     uint16_t duree_ticks = 0;
+"126
+[; ;main.c: 126:     uint16_t duree_ticks = 0;
 [v _duree_ticks `us ~T0 @X0 1 a ]
 [e = _duree_ticks -> -> 0 `i `us ]
-"116
-[; ;main.c: 116:     float distance_cm = 0;
+"127
+[; ;main.c: 127:     float distance_cm = 0;
 [v _distance_cm `f ~T0 @X0 1 a ]
 [e = _distance_cm -> -> 0 `i `f ]
-"118
-[; ;main.c: 118:     while(1)
-[e :U 376 ]
-"119
-[; ;main.c: 119:     {
-{
-"120
-[; ;main.c: 120:         envoyer_trigger();
-[e ( _envoyer_trigger ..  ]
-"121
-[; ;main.c: 121:         mesure_prete = 0;
-[e = _mesure_prete -> -> 0 `i `uc ]
-"125
-[; ;main.c: 125:         _delay((unsigned long)((60)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"129
-[; ;main.c: 129:         if (mesure_prete == 1)
-[e $ ! == -> _mesure_prete `i -> 1 `i 378  ]
+"128
+[; ;main.c: 128:     uint8_t amplitude = 0;
+[v _amplitude `uc ~T0 @X0 1 a ]
+[e = _amplitude -> -> 0 `i `uc ]
 "130
-[; ;main.c: 130:         {
+[; ;main.c: 130:     while(1)
+[e :U 376 ]
+"131
+[; ;main.c: 131:     {
 {
 "132
-[; ;main.c: 132:             if (temps_fin >= temps_depart) {
-[e $ ! >= -> _temps_fin `ui -> _temps_depart `ui 379  ]
-{
+[; ;main.c: 132:         mesure_prete = 0;
+[e = _mesure_prete -> -> 0 `i `uc ]
 "133
-[; ;main.c: 133:                 duree_ticks = temps_fin - temps_depart;
+[; ;main.c: 133:         envoyer_trigger();
+[e ( _envoyer_trigger ..  ]
+"137
+[; ;main.c: 137:         _delay((unsigned long)((60)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 60 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"141
+[; ;main.c: 141:         if (mesure_prete == 1)
+[e $ ! == -> _mesure_prete `i -> 1 `i 378  ]
+"142
+[; ;main.c: 142:         {
+{
+"144
+[; ;main.c: 144:             if (temps_fin >= temps_depart)
+[e $ ! >= -> _temps_fin `ui -> _temps_depart `ui 379  ]
+"145
+[; ;main.c: 145:             {
+{
+"146
+[; ;main.c: 146:                 duree_ticks = temps_fin - temps_depart;
 [e = _duree_ticks -> - -> _temps_fin `ui -> _temps_depart `ui `us ]
-"134
-[; ;main.c: 134:             } else {
+"147
+[; ;main.c: 147:             }
 }
 [e $U 380  ]
+"148
+[; ;main.c: 148:             else
 [e :U 379 ]
+"149
+[; ;main.c: 149:             {
 {
-"135
-[; ;main.c: 135:                 duree_ticks = (65535 - temps_depart) + temps_fin;
+"150
+[; ;main.c: 150:                 duree_ticks = (65535 - temps_depart) + temps_fin;
 [e = _duree_ticks -> + - -> 65535 `l -> _temps_depart `l -> _temps_fin `l `us ]
-"136
-[; ;main.c: 136:             }
+"151
+[; ;main.c: 151:             }
 }
 [e :U 380 ]
-"142
-[; ;main.c: 142:             distance_cm = (float)duree_ticks / 29.0f;
+"157
+[; ;main.c: 157:             distance_cm = (float)duree_ticks / 29.0f;
 [e = _distance_cm / -> _duree_ticks `f -> .29.0 `f ]
-"146
-[; ;main.c: 146:             if (distance_cm > 2.0f && distance_cm < 15.0f) {
-[e $ ! && > _distance_cm -> .2.0 `f < _distance_cm -> .15.0 `f 381  ]
+"161
+[; ;main.c: 161:             if (distance_cm >= 2 && distance_cm <= 15)
+[e $ ! && >= _distance_cm -> -> 2 `i `f <= _distance_cm -> -> 15 `i `f 381  ]
+"162
+[; ;main.c: 162:             {
 {
-"147
-[; ;main.c: 147:                 LATEbits.LATE2 = 1;
+"163
+[; ;main.c: 163:                 LATEbits.LATE2 = 1;
 [e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
-"148
-[; ;main.c: 148:             } else {
+"164
+[; ;main.c: 164:             }
 }
 [e $U 382  ]
+"165
+[; ;main.c: 165:             else
 [e :U 381 ]
+"166
+[; ;main.c: 166:             {
 {
-"149
-[; ;main.c: 149:                 LATEbits.LATE2 = 0;
+"167
+[; ;main.c: 167:                 LATEbits.LATE2 = 0;
 [e = . . _LATEbits 0 2 -> -> 0 `i `uc ]
-"150
-[; ;main.c: 150:             }
+"168
+[; ;main.c: 168:             }
 }
 [e :U 382 ]
-"151
-[; ;main.c: 151:         }
+"169
+[; ;main.c: 169:         }
 }
+[e $U 383  ]
+"170
+[; ;main.c: 170:         else
 [e :U 378 ]
-"152
-[; ;main.c: 152:     }
+"171
+[; ;main.c: 171:         {
+{
+"174
+[; ;main.c: 174:             LATEbits.LATE2 = 1;
+[e = . . _LATEbits 0 2 -> -> 1 `i `uc ]
+"175
+[; ;main.c: 175:             _delay((unsigned long)((10)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"176
+[; ;main.c: 176:             LATEbits.LATE2 = 0;
+[e = . . _LATEbits 0 2 -> -> 0 `i `uc ]
+"177
+[; ;main.c: 177:         }
+}
+[e :U 383 ]
+"178
+[; ;main.c: 178:     }
 }
 [e :U 375 ]
 [e $U 376  ]
 [e :U 377 ]
-"153
-[; ;main.c: 153: }
+"179
+[; ;main.c: 179: }
 [e :UE 374 ]
 }

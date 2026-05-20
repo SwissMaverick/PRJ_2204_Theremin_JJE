@@ -72,25 +72,36 @@ volatile uint16_t temps_depart = 0;
 volatile uint16_t temps_fin = 0;
 volatile uint8_t  mesure_prete = 0;
 
+// ==============================================================================
+// FONCTION D'INTERRUPTION
+// ==============================================================================
 void __interrupt() ISR(void) 
 {
     // Si l'interruption vient du module de Capture CCP1 (Capteur Ultrason)
     if (PIR1bits.CCP1IF) 
     {
-        PIR1bits.CCP1IF = 0; // Remise à zéro du drapeau
+        PIR1bits.CCP1IF = 0; // Remise à zéro du vrai drapeau
 
         // Si on surveillait le FRONT MONTANT (L'écho vient de s'activer)
         if (CCP1CONbits.CCP1M0 == 1) 
         {
-            temps_depart = (CCPR1H << 8) | CCPR1L; // On prend en photo le Timer1
-            CCP1CON = 0b00000100;                  // On inverse : on surveille maintenant le FRONT DESCENDANT
+            temps_depart = ((uint16_t)CCPR1H << 8) | CCPR1L; 
+            
+            PIE1bits.CCP1IE = 0;  // 1. On désactive l'interruption
+            CCP1CON = 0b00000100; // 2. On change de direction (Front Descendant)
+            PIR1bits.CCP1IF = 0;  // 3. On efface le "faux" drapeau généré
+            PIE1bits.CCP1IE = 1;  // 4. On réactive l'interruption
         } 
         // Sinon, c'est le FRONT DESCENDANT (L'écho vient de se couper)
         else 
         {
-            temps_fin = (CCPR1H << 8) | CCPR1L;    // On prend la 2ème photo du Timer1
-            mesure_prete = 1;                      // On signale au main.c que le calcul est possible
-            CCP1CON = 0b00000101;                  // On se remet sur FRONT MONTANT pour la prochaine fois
+            temps_fin = ((uint16_t)CCPR1H << 8) | CCPR1L;    
+            mesure_prete = 1;
+            
+            PIE1bits.CCP1IE = 0;  
+            CCP1CON = 0b00000101; 
+            PIR1bits.CCP1IF = 0;  
+            PIE1bits.CCP1IE = 1;  
         }
     }
 }
@@ -114,11 +125,12 @@ void main(void)
 
     uint16_t duree_ticks = 0;
     float distance_cm = 0;
+    uint8_t amplitude = 0;
 
     while(1) 
     {
-        envoyer_trigger(); // On lance un ping
         mesure_prete = 0;  // On remet notre signal à zéro
+        envoyer_trigger(); // On lance un ping
         
         // Le HC-SR04 a besoin de 60ms de repos entre deux tirs pour que
         // l'écho ne rebondisse pas partout dans la pièce
@@ -129,9 +141,12 @@ void main(void)
         if (mesure_prete == 1) 
         {
             // Calcul de la différence de temps (gestion du redémarrage du timer)
-            if (temps_fin >= temps_depart) {
+            if (temps_fin >= temps_depart) 
+            {
                 duree_ticks = temps_fin - temps_depart;
-            } else {
+            } 
+            else 
+            {
                 duree_ticks = (65535 - temps_depart) + temps_fin; 
             }
 
@@ -143,11 +158,22 @@ void main(void)
 
             // --- LE TEST ---
             // Si la main est entre 2 cm (minimum du capteur) et 15 cm
-            if (distance_cm > 2.0f && distance_cm < 15.0f) {
-                LED_DS1 = 1; // Allume la LED
-            } else {
-                LED_DS1 = 0; // Éteint la LED
+            if (distance_cm >= 2 && distance_cm <= 15)
+            {
+                LED_DS1 = 1; // Allumé : L'obstacle est dans la zone !
             }
+            else 
+            {
+                LED_DS1 = 0; // Éteint : L'obstacle est trop loin
+            }
+        }
+        else
+        {
+            // MODE ERREUR : L'interruption n'a pas détecté la fin de l'écho !
+            // On fait clignoter la LED très brièvement pour signaler un problème
+            LED_DS1 = 1;
+            __delay_ms(10);
+            LED_DS1 = 0;
         }
     }
 }

@@ -48,8 +48,14 @@
 #define TRIG_H LATCbits.LATC0  // Sortie (On envoie l'impulsion)
 #define ECHO_H PORTCbits.RC2   // Entrée (On lit le retour)
 
+// --- DAC AUDIO (MCP4901) ---
+#define DAC_CS   LATDbits.LATD5 // Chip Select (Active le DAC)
+#define DAC_SCK  LATBbits.LATB1 // Horloge SPI
+#define DAC_SDI  LATBbits.LATB0 // Données SPI (Sortie logicielle)
+
 // Prototypes
 void Init_Hardware(void);
+void DAC_Write(uint8_t valeur);
 void ADC_Init(void);
 uint16_t ADC_Read_AN1(void);
 float Lire_Tension_Batterie(void);

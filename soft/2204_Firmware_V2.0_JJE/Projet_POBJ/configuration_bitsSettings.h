@@ -36,6 +36,11 @@
 #pragma config FCMEN = OFF        // Moniteur d'horloge de sécurité désactivé
 #pragma config IESO = OFF         // Basculement d'oscillateur désactivé
 
+// CONFIG1L
+#pragma config PLLDIV = 1       
+#pragma config CPUDIV = OSC1_PLL2 
+#pragma config USBDIV = 1
+
 // CONFIG2L : Alimentation et Reset
 #pragma config PWRT = ON          // Délai de démarrage activé (stabilise l'alim)
 #pragma config BOR = ON           // Reset si chute de tension
@@ -61,4 +66,3 @@
 
 
 #endif	/* CONFIGURATION_BITSSETTINGS_H */
-

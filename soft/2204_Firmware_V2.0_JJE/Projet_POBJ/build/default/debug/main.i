@@ -5894,6 +5894,11 @@ char *tempnam(const char *, const char *);
 #pragma config IESO = OFF
 
 
+#pragma config PLLDIV = 1
+#pragma config CPUDIV = OSC1_PLL2
+#pragma config USBDIV = 1
+
+
 #pragma config PWRT = ON
 #pragma config BOR = ON
 #pragma config BORV = 3
@@ -5916,8 +5921,9 @@ char *tempnam(const char *, const char *);
 # 62 "main.c" 2
 
 # 1 "./hardware.h" 1
-# 52 "./hardware.h"
+# 57 "./hardware.h"
 void Init_Hardware(void);
+void DAC_Write(uint8_t valeur);
 void ADC_Init(void);
 uint16_t ADC_Read_AN1(void);
 float Lire_Tension_Batterie(void);
@@ -5935,6 +5941,9 @@ volatile uint16_t temps_depart = 0;
 volatile uint16_t temps_fin = 0;
 volatile uint8_t mesure_prete = 0;
 
+
+
+
 void __attribute__((picinterrupt(("")))) ISR(void)
 {
 
@@ -5945,15 +5954,23 @@ void __attribute__((picinterrupt(("")))) ISR(void)
 
         if (CCP1CONbits.CCP1M0 == 1)
         {
-            temps_depart = (CCPR1H << 8) | CCPR1L;
+            temps_depart = ((uint16_t)CCPR1H << 8) | CCPR1L;
+
+            PIE1bits.CCP1IE = 0;
             CCP1CON = 0b00000100;
+            PIR1bits.CCP1IF = 0;
+            PIE1bits.CCP1IE = 1;
         }
 
         else
         {
-            temps_fin = (CCPR1H << 8) | CCPR1L;
+            temps_fin = ((uint16_t)CCPR1H << 8) | CCPR1L;
             mesure_prete = 1;
+
+            PIE1bits.CCP1IE = 0;
             CCP1CON = 0b00000101;
+            PIR1bits.CCP1IF = 0;
+            PIE1bits.CCP1IE = 1;
         }
     }
 }
@@ -5977,11 +5994,12 @@ void main(void)
 
     uint16_t duree_ticks = 0;
     float distance_cm = 0;
+    uint8_t amplitude = 0;
 
     while(1)
     {
-        envoyer_trigger();
         mesure_prete = 0;
+        envoyer_trigger();
 
 
 
@@ -5992,9 +6010,12 @@ void main(void)
         if (mesure_prete == 1)
         {
 
-            if (temps_fin >= temps_depart) {
+            if (temps_fin >= temps_depart)
+            {
                 duree_ticks = temps_fin - temps_depart;
-            } else {
+            }
+            else
+            {
                 duree_ticks = (65535 - temps_depart) + temps_fin;
             }
 
@@ -6006,11 +6027,22 @@ void main(void)
 
 
 
-            if (distance_cm > 2.0f && distance_cm < 15.0f) {
+            if (distance_cm >= 2 && distance_cm <= 15)
+            {
                 LATEbits.LATE2 = 1;
-            } else {
+            }
+            else
+            {
                 LATEbits.LATE2 = 0;
             }
+        }
+        else
+        {
+
+
+            LATEbits.LATE2 = 1;
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+            LATEbits.LATE2 = 0;
         }
     }
 }
