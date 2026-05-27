@@ -20,6 +20,10 @@ PIC utilisé : PIC18F4550-I/PT
 
 ## Mise en place du projet
 ### Déploiement
+### Fréquence du PIC18
+```C
+#define _XTAL_FREQ 8000000
+```
 ### Bits de configuration
 ```C
 // CONFIG1H : Oscillateur
