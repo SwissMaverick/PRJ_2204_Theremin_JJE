@@ -269,14 +269,14 @@ void __interrupt() ISR(void)
 - Information Debug
 
 - Signaux mesurés
-<img width="1280" height="824" alt="LED_clignote" src="https://github.com/user-attachments/assets/ac4eb8c0-1536-4ca4-921a-8c2e69c07637" />
 Clignotement de la LED
+<img width="1280" height="824" alt="LED_clignote" src="https://github.com/user-attachments/assets/ac4eb8c0-1536-4ca4-921a-8c2e69c07637" />  
 
-<img width="1280" height="824" alt="Premier essai ultrasons (fonctionne pas)" src="https://github.com/user-attachments/assets/cadf88bc-ee15-4d40-a1dd-062483d7d0b3" />
 Premier essai de l'ultrasons avec mauvaise alimentation
+<img width="1280" height="824" alt="Premier essai ultrasons (fonctionne pas)" src="https://github.com/user-attachments/assets/cadf88bc-ee15-4d40-a1dd-062483d7d0b3" />  
 
-<img width="1280" height="824" alt="Essai alim 5V (fonctionne)" src="https://github.com/user-attachments/assets/f3c2fa56-166b-4ac9-953d-03f0101620e5" />
 Essai avec la bonne alimentation (fonctionnel)
+<img width="1280" height="824" alt="Essai alim 5V (fonctionne)" src="https://github.com/user-attachments/assets/f3c2fa56-166b-4ac9-953d-03f0101620e5" />  
 
-<img width="1280" height="824" alt="Essai 10cm" src="https://github.com/user-attachments/assets/13d4c446-b9f2-46eb-aea7-b0d289fdd2c6" />
 Essai à 10cm
+<img width="1280" height="824" alt="Essai 10cm" src="https://github.com/user-attachments/assets/13d4c446-b9f2-46eb-aea7-b0d289fdd2c6" />  
