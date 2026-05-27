@@ -19,8 +19,66 @@ Version du compilateur : XC8 (v2.46)
 PIC utilisé : PIC18F4550-I/PT  
 
 ## Mise en place du projet
-
 ### Déploiement
+### Bits de configuration
+```C
+// CONFIG1H : Oscillateur
+#pragma config FOSC = INTOSCIO_EC // Oscillateur interne, RA6 et RA7 en E/S numériques
+#pragma config FCMEN = OFF        // Moniteur d'horloge de sécurité désactivé
+#pragma config IESO = OFF         // Basculement d'oscillateur désactivé
+
+// CONFIG1L
+#pragma config PLLDIV = 1       
+#pragma config CPUDIV = OSC1_PLL2 
+#pragma config USBDIV = 1
+
+// CONFIG2L : Alimentation et Reset
+#pragma config PWRT = ON          // Délai de démarrage activé (stabilise l'alim)
+#pragma config BOR = ON           // Reset si chute de tension
+#pragma config BORV = 3           // Tension du BOR fixée à 2.05V
+#pragma config VREGEN = OFF       // Régulateur USB désactivé (pas d'USB utilisé)
+
+// CONFIG2H : Chien de garde (Watchdog)
+#pragma config WDT = OFF          // Watchdog désactivé pour le développement
+
+// CONFIG3H : Multiplexage et PORTB
+#pragma config CCP2MX = ON        // E/S CCP2 multiplexée avec RC1
+#pragma config PBADEN = OFF       // PORTB<4:0> configurés en E/S NUMÉRIQUES au reset
+#pragma config LPT1OSC = OFF      // Timer1 configuré pour haute puissance
+#pragma config MCLRE = ON         // Broche MCLR activée (Reliée à SW1 sur le schéma)
+
+// CONFIG4L : Paramètres étendus
+#pragma config STVREN = ON        // Reset sur débordement de la pile
+#pragma config LVP = OFF          // Programmation basse tension DÉSACTIVÉE (Libère RB5)
+#pragma config ICPRT = OFF        // Port de débogage ICSP dédié désactivé
+#pragma config XINST = OFF        // Jeu d'instructions étendu désactivé
+```
+### Définition des broches
+```C
+// Définition des broches
+#define LED_DS1      LATEbits.LATE2
+#define LED_BAT_RED  LATEbits.LATE1 
+#define LED_BAT_GRN  LATEbits.LATE0 
+#define BAT_READ     LATAbits.LATA0
+
+// CAPTEUR ULTRASON HORIZONTAL
+#define TRIG_H LATCbits.LATC0  // Sortie (On envoie l'impulsion)
+#define ECHO_H PORTCbits.RC2   // Entrée (On lit le retour)
+
+// DAC AUDIO (MCP4901)
+#define DAC_CS   LATDbits.LATD5 // Chip Select (Active le DAC)
+#define DAC_SCK  LATBbits.LATB1 // Horloge SPI
+#define DAC_SDI  LATBbits.LATB0 // Données SPI (Sortie logicielle)
+```
+### Prototypes des fonctions
+```C
+void Init_Hardware(void);
+void DAC_Write(uint8_t valeur);
+void ADC_Init(void);
+uint16_t ADC_Read_AN1(void);
+float Lire_Tension_Batterie(void);
+void Surveiller_Tension_Batterie(void);
+```
 
 ## Explication sur les fonctions implémentées :
 ### Initialisation  
