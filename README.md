@@ -263,3 +263,7 @@ void __interrupt() ISR(void)
 ## Validation des fonctions implémentées
 
 ### Testing :
+
+- Information Debug
+
+- Signaux mesurés
