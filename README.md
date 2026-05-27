@@ -83,7 +83,109 @@ void Init_Hardware(void)
     INTCONbits.GIE = 1;   // Autorise les interruptions globales
 }
 ```
+### Fonction principale
+```C
+void main(void) 
+{
+    Init_Hardware();
 
+    uint16_t duree_ticks = 0;
+    float distance_cm = 0;
+    uint8_t amplitude = 0;
+
+    while(1) 
+    {
+        mesure_prete = 0;  // On remet notre signal à zéro
+        envoyer_trigger(); // On lance un ping
+        
+        // Le HC-SR04 a besoin de 60ms de repos entre deux tirs pour que
+        // l'écho ne rebondisse pas partout dans la pièce
+        __delay_ms(60); 
+
+        // Une fois les 60ms passées, l'interruption matérielle a largement eu le 
+        // temps de faire son travail en tâche de fond. On peut calculer :
+        if (mesure_prete == 1) 
+        {
+            // Calcul de la différence de temps (gestion du redémarrage du timer)
+            if (temps_fin >= temps_depart) 
+            {
+                duree_ticks = temps_fin - temps_depart;
+            } 
+            else 
+            {
+                duree_ticks = (65535 - temps_depart) + temps_fin; 
+            }
+
+            // Explication de la formule mathématique :
+            // Le Timer1 avance toutes les 2µs (grâce au Prescaler 1:4).
+            // Distance standard = Temps(µs) / 58
+            // Ici : Distance = (ticks * 2) / 58 => Distance = ticks / 29
+            distance_cm = (float)duree_ticks / 29.0f;
+
+            // --- LE TEST ---
+            // Si la main est entre 2 cm (minimum du capteur) et 15 cm
+            if (distance_cm >= 2 && distance_cm <= 15)
+            {
+                LED_DS1 = 1; // Allumé : L'obstacle est dans la zone !
+            }
+            else 
+            {
+                LED_DS1 = 0; // Éteint : L'obstacle est trop loin
+            }
+        }
+        else
+        {
+            // MODE ERREUR : L'interruption n'a pas détecté la fin de l'écho !
+            // On fait clignoter la LED très brièvement pour signaler un problème
+            LED_DS1 = 1;
+            __delay_ms(10);
+            LED_DS1 = 0;
+        }
+    }
+}
+```
+### Fonction d'envoi d'impulsion pour le capteur ultrason
+```C
+void envoyer_trigger(void) 
+{
+    TRIG_H = 1;
+    __delay_us(10); // Impulsion de 10 microsecondes requise par le HC-SR04
+    TRIG_H = 0;
+}
+```
+### Fonction d'interruption
+```C
+void __interrupt() ISR(void) 
+{
+    // Si l'interruption vient du module de Capture CCP1 (Capteur Ultrason)
+    if (PIR1bits.CCP1IF) 
+    {
+        PIR1bits.CCP1IF = 0; // Remise à zéro du vrai drapeau
+
+        // Si on surveillait le FRONT MONTANT (L'écho vient de s'activer)
+        if (CCP1CONbits.CCP1M0 == 1) 
+        {
+            temps_depart = ((uint16_t)CCPR1H << 8) | CCPR1L; 
+            
+            PIE1bits.CCP1IE = 0;  // 1. On désactive l'interruption
+            CCP1CON = 0b00000100; // 2. On change de direction (Front Descendant)
+            PIR1bits.CCP1IF = 0;  // 3. On efface le "faux" drapeau généré
+            PIE1bits.CCP1IE = 1;  // 4. On réactive l'interruption
+        } 
+        // Sinon, c'est le FRONT DESCENDANT (L'écho vient de se couper)
+        else 
+        {
+            temps_fin = ((uint16_t)CCPR1H << 8) | CCPR1L;    
+            mesure_prete = 1;
+            
+            PIE1bits.CCP1IE = 0;  
+            CCP1CON = 0b00000101; 
+            PIR1bits.CCP1IF = 0;  
+            PIE1bits.CCP1IE = 1;  
+        }
+    }
+}
+```
 
 ### Communication -> trames
 
