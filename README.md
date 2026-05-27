@@ -257,7 +257,7 @@ void __interrupt() ISR(void)
 ### Communication -> trames
 
 ### Calculs
-**Formule du calcul de la distance par rapport au capteur**
+**Formule du calcul de la distance par rapport au capteur**  
 $$\frac{\text{Durée impulsion écho} \times 340}{2}$$
 
 ### Gestion des datas
