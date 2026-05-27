@@ -14,9 +14,9 @@ Boîtiers : 40-Pin PDIP, 44-Pin QFN, 44-Pin TQFP
 ## Objectif du projet
 
 ## Versionnning
-Version de l'IDE : v6.15
-Version du compilateur : XC8 (v2.46)
-PIC utilisé : PIC18F4550-I/PT
+Version de l'IDE : v6.15  
+Version du compilateur : XC8 (v2.46)  
+PIC utilisé : PIC18F4550-I/PT  
 
 ## Mise en place du projet
 
