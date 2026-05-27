@@ -1,5 +1,8 @@
 # README du projet 2204 Thérémine version 3
 ## Objectif du projet
+Le Théremin est un appareil permettant de générer un signal audible, dont l'amplitude et la fréquence sont contrôlées par l'utilisateur au moyen de deux capteurs de distance.  L'appareil peut être utilisé sur secteur ou de manière nomade grâce à une batterie interne.  
+
+Grâce la gestuelle des mains par rapport aux capteurs, la fréquence et l'amplitude du signal audio peuvent être modifiées.  
 
 ## Versionning
 Version de l'IDE : v6.15  
