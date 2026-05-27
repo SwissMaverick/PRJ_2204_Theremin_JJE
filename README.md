@@ -282,4 +282,4 @@ Essai avec la bonne alimentation (fonctionnel)
 Essai à 10cm
 <img width="1280" height="824" alt="Essai 10cm" src="https://github.com/user-attachments/assets/13d4c446-b9f2-46eb-aea7-b0d289fdd2c6" />  
 
-### $$\frac{\text{Durée impulsion écho} \times 340}{2} = \frac{\text{600us} \times 340}{2}$$ = 0,102m = 10,2cm
+### $$\frac{\text{Durée impulsion écho} \times 340}{2} = \frac{\text{600us} \times 340}{2} = 0,102m = 10,2cm$$
