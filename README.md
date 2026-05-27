@@ -5,6 +5,9 @@ L'appareil peut être utilisé sur secteur ou de manière nomade grâce à une b
 
 Grâce la gestuelle des mains par rapport aux capteurs, la fréquence et l'amplitude du signal audio peuvent être modifiées.  
 
+### Journal de travail
+Chemin : PRJ_2204_Theremin_JJE\doc\V3\Screenshots  
+
 ## Versionning
 Version de l'IDE : v6.15  
 Version du compilateur : XC8 (v2.46)  
