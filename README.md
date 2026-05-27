@@ -10,10 +10,10 @@ Comparateurs : 2
 Boîtiers : 40-Pin PDIP, 44-Pin QFN, 44-Pin TQFP  
 
 
-#README du projet 2204 Thérémine version 3
-##Objectif du projet
+# README du projet 2204 Thérémine version 3
+## Objectif du projet
 
-##Versionnning
+## Versionnning
 Version de l'IDE : v6.15
 Version du compilateur : XC8 (v2.46)
 PIC utilisé : PIC18F4550-I/PT
