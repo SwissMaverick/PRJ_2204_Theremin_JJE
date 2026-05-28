@@ -9,9 +9,12 @@ Grâce la gestuelle des mains par rapport aux capteurs, la fréquence et l'ampli
 Chemin : PRJ_2204_Theremin_JJE\doc\V3\Screenshots  
 
 ## Versionning
-Version de l'IDE : v6.15  
-Version du compilateur : XC8 (v2.46)  
-PIC utilisé : PIC18F4550-I/PT  
+### Version de l'IDE
+v6.15  
+### Version du compilateur
+XC8 (v2.46)  
+### PIC utilisé
+PIC18F4550-I/PT  
 ### Caractéristique du PIC18
 Fréquence : 48MHz  
 Sources d'interruption : 20  
