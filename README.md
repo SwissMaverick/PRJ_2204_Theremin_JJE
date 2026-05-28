@@ -25,13 +25,6 @@ Comm série : USART
 USB modules : 1  
 Comparateurs : 2  
 Boîtiers : 40-Pin PDIP, 44-Pin QFN, 44-Pin TQFP  
-
-## Mise en place du projet
-### Déploiement
-### Fréquence du PIC18
-```C
-#define _XTAL_FREQ 8000000
-```
 ### Bits de configuration
 ```C
 // CONFIG1H : Oscillateur
@@ -64,6 +57,12 @@ Boîtiers : 40-Pin PDIP, 44-Pin QFN, 44-Pin TQFP
 #pragma config LVP = OFF          // Programmation basse tension DÉSACTIVÉE (Libère RB5)
 #pragma config ICPRT = OFF        // Port de débogage ICSP dédié désactivé
 #pragma config XINST = OFF        // Jeu d'instructions étendu désactivé
+```
+## Mise en place du projet
+### Déploiement
+### Fréquence du PIC18
+```C
+#define _XTAL_FREQ 8000000
 ```
 ### Définition des broches
 ```C
