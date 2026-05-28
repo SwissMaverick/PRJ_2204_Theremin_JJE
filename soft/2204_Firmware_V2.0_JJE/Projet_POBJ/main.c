@@ -62,9 +62,9 @@
 #include "configuration_bitsSettings.h"
 #include "hardware.h"
 
-#define LED_DS1 LATEbits.LATE2
-#define LED_BAT_RED  LATEbits.LATE1 
-#define LED_BAT_GRN  LATEbits.LATE0 
+#define LED_DS1      LATEbits.LATE2
+#define LED_BAT_RED  LATEbits.LATE1
+#define LED_BAT_GRN  LATEbits.LATE0
 #define BAT_READ     LATAbits.LATA0
 
 // Variables globales (volatile = modifiées en tâche de fond par l'interruption)

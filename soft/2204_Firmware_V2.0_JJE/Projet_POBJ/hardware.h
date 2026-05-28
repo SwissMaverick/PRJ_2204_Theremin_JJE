@@ -38,7 +38,7 @@
 // Fréquence du PIC (utile pour __delay_ms)
 #define _XTAL_FREQ 8000000
 
-// Définition de tes broches
+// Définition des broches
 #define LED_DS1      LATEbits.LATE2
 #define LED_BAT_RED  LATEbits.LATE1 
 #define LED_BAT_GRN  LATEbits.LATE0 
@@ -48,7 +48,7 @@
 #define TRIG_H LATCbits.LATC0  // Sortie (On envoie l'impulsion)
 #define ECHO_H PORTCbits.RC2   // Entrée (On lit le retour)
 
-// --- DAC AUDIO (MCP4901) ---
+// DAC AUDIO (MCP4901)
 #define DAC_CS   LATDbits.LATD5 // Chip Select (Active le DAC)
 #define DAC_SCK  LATBbits.LATB1 // Horloge SPI
 #define DAC_SDI  LATBbits.LATB0 // Données SPI (Sortie logicielle)
