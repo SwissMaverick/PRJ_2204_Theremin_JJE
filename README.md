@@ -263,7 +263,8 @@ void __interrupt() ISR(void)
 
 ### Testing :
 
-- **Signaux mesurés**  
+- **Signaux mesurés**
+  
 **Clignotement de la LED**
 <img width="1280" height="824" alt="LED_clignote" src="https://github.com/user-attachments/assets/ac4eb8c0-1536-4ca4-921a-8c2e69c07637" />
 Ce test s'agissait juste de vérifier les timers ainsi que les prescalers configurés dans le PIC. Le clignotement d'une LED confirmait donc que ces fonctions étaient correctement configurées.
