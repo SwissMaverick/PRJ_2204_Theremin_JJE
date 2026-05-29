@@ -25,4 +25,6 @@ Création d'une machine d'état globale.
 
 13.05.2026 : Code du clignotement non fonctionnel en début de cours. Résolution du problème. La port addressé n'était pas le bon. Après la résolution du problème, la LED a bien pu être clignotée.
 
-18.05.2026 : Réussite du test avec le capteur ultrasons. Le problème était que le capteur était alimenté en 3.3V alors qu'il nécéssitait du 5V. Il a été décidé de commander des capteurs ultrasons compatibles avec une alim en 3.3V. Dans le futur, une alim 5V sur la carte ne sera plus utile étant donné que tout le reste est alimenté en 3.3V.
+20.05.2026 : Réussite du test avec le capteur ultrasons. Le problème était que le capteur était alimenté en 3.3V alors qu'il nécéssitait du 5V. Il a été décidé de commander des capteurs ultrasons compatibles avec une alim en 3.3V. Dans le futur, une alim 5V sur la carte ne sera plus utile étant donné que tout le reste est alimenté en 3.3V.
+
+27.05.2026 : Essai d'un code pour allumer une LED lorsque la distance détectée passait sous un certain seuil (non fonctionnel). Tentatives de communication avec l'ADC (non fonctionnel)
