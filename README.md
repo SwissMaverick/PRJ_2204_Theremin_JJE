@@ -267,9 +267,10 @@ void __interrupt() ISR(void)
 
 - **Signaux mesurés**
 **Clignotement de la LED**
-<img width="1280" height="824" alt="LED_clignote" src="https://github.com/user-attachments/assets/ac4eb8c0-1536-4ca4-921a-8c2e69c07637" />  
+<img width="1280" height="824" alt="LED_clignote" src="https://github.com/user-attachments/assets/ac4eb8c0-1536-4ca4-921a-8c2e69c07637" />
+Ce test s'agissait juste de vérifier les timers ainsi que les prescalers configurés dans le PIC. Le clignotement d'une LED confirmait donc que ces fonctions étaient correctement configurées.
   
-LED mapping :
+Mapping :
 
 CH1 / U2.27 (LED Rouge)
 
@@ -277,7 +278,7 @@ CH1 / U2.27 (LED Rouge)
 <img width="1280" height="824" alt="Premier essai ultrasons (fonctionne pas)" src="https://github.com/user-attachments/assets/cadf88bc-ee15-4d40-a1dd-062483d7d0b3" />  
 Dans ce cas-là, l'echo restait fixe et était juste représenté par un faible pic. Le problème était que le capteur était alimenté en 3.3V alors qu'il est écrit dans son datasheet qu'il doit être alimenté en 5V. Pour remédier à ce prolème, il a fallu rebrancher l'alim au 5V de la carte. Des capteurs alimentés en 3.3V ont été commandés mais ne sont toujours pas arrivés à l'heure de l'écriture de ce document (29.05.2026).  
   
-LED mapping :
+Mapping :
 
 CH1 / X1.2 (Trigger)
 
@@ -287,7 +288,7 @@ CH2 / X1.3 (Echo)
 <img width="1280" height="824" alt="Essai alim 5V (fonctionne)" src="https://github.com/user-attachments/assets/f3c2fa56-166b-4ac9-953d-03f0101620e5" />  
 En mettant une alim de 5V. La réponse est beaucoup plus concluante. L'impulsion d'echo correspond beucoup plus à ce qui était attendu. De plus, cet echo varie lorsque l'on met un obstacle devant le capteur. Il a été néanmoins remarqué que la détéction d'une main est effective jusqu'à environ 30cm - 40cm. Au-delà de ces distances, la main est difficilement détectable et il faut mettre une surface plus grande comme la face d'un livre pour que le capteur détecte à nouveau l'obstacle.  
   
-LED mapping :
+Mapping :
 
 CH1 / X1.2 (Trigger)
 
@@ -297,7 +298,7 @@ CH2 / X1.3 (Echo)
 <img width="1280" height="824" alt="Essai 10cm" src="https://github.com/user-attachments/assets/13d4c446-b9f2-46eb-aea7-b0d289fdd2c6" />  
 En mettant la main à 10cm du capteur, il est possible de mesurer l'echo et de vérifier si la distance est correcte.  
   
-LED mapping :
+Mapping :
 
 CH1 / X1.2 (Trigger)
 
